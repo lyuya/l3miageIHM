@@ -1,2 +1,0 @@
-# l3miageIHM
-CabinetMedical
