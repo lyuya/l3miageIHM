@@ -1,0 +1,51 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+
+</div>
+<div id="nav">
+
+
+  <mat-list>
+    <h3 mat-subheader ><a class="navMenu" routerLink="/infirmierDash" >Infirmiers</a><button mat-icon-button [matMenuTriggerFor]="menuInf" >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    </h3>
+    <mat-list-item *ngFor="let i of infirmiers">
+      <app-infirmier [infirmier]="i" ></app-infirmier>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <h3 mat-subheader><a class="navMenu" routerLink="/patientDash">Patients</a><button mat-icon-button [matMenuTriggerFor]="menuPat">
+      <mat-icon>more_vert</mat-icon>
+    </button></h3>
+    <mat-list-item *ngFor="let p of patients">
+      <app-patient [patient]="p"></app-patient>
+    </mat-list-item>
+  </mat-list>
+</div>
+
+
+
+<mat-menu #menuInf="matMenu">
+  <button mat-menu-item routerLink="/ajouterInfirmier">
+    <mat-icon>note_add</mat-icon>
+    <span>Ajouter</span>
+  </button>
+  <button mat-menu-item >
+    <mat-icon>build</mat-icon>
+    <span>Modifier</span>
+  </button>
+</mat-menu>
+
+<mat-menu #menuPat="matMenu">
+  <button mat-menu-item routerLink="/ajouterPatient">
+    <mat-icon>note_add</mat-icon>
+    <span>Ajouter</span>
+  </button>
+  <button mat-menu-item >
+    <mat-icon>build</mat-icon>
+    <span>Modifier</span>
+  </button>
+</mat-menu>
+
+<router-outlet></router-outlet>
+<div id="footer">Copyright: Yanan LYU</div>

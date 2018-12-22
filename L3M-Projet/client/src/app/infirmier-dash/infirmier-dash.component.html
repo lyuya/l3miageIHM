@@ -1,0 +1,35 @@
+<div id="section">
+    <!--<div class="infirmier" *ngFor="let i of infirmiers">-->
+      <!--<app-infirmier-info [i] = 'i'></app-infirmier-info>-->
+    <!--</div>-->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef > ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="prenom">
+      <th mat-header-cell *matHeaderCellDef > PRENOM </th>
+      <td mat-cell *matCellDef="let element"> {{element.prenom}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef > NOM </th>
+      <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+
+
+
+<!--<ul>-->
+  <!--<li *ngFor="let i of getinfirmiers()">-->
+    <!--<app-infirmier-info [infirmier] = 'i'></app-infirmier-info>-->
+  <!--</li>-->
+<!--</ul>-->

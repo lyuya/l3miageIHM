@@ -1,0 +1,29 @@
+.card {
+  max-width: 200px;
+}
+.mat-card-image {
+  width: calc(40% + 32px) !important;
+}
+.mat-card {
+  display: inline-block;
+  margin-right: 5%;
+}
+.affectation {
+  display: inline-block;
+  margin-left: 5%;
+}
+#section {
+  width: 73% !important;
+}
+th.mat-header-cell {
+  //padding: 0 50px;
+}
+.patsAffectes {
+  margin: 5%;
+}
+table {
+  width: 100%;
+}
+td.mat-cell {
+  text-align: left !important;
+}

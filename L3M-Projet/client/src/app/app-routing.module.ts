@@ -1,0 +1,29 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
+import {AjouterPatientComponent} from './ajouter-patient/ajouter-patient.component';
+import {PatientInfoComponent} from './patient-info/patient-info.component';
+import {InfirmierInfoComponent} from './infirmier-info/infirmier-info.component';
+import {InfirmierDashComponent} from './infirmier-dash/infirmier-dash.component';
+import {AjouterInfirmierComponent} from './ajouter-infirmier/ajouter-infirmier.component';
+import {InfirmierComponent} from './infirmier/infirmier.component';
+import {SecretaryComponent} from './secretary/secretary.component';
+import {PatientComponent} from './patient/patient.component';
+import {AppComponent} from './app.component';
+import {PatientDashComponent} from './patient-dash/patient-dash.component';
+
+const routes: Routes = [
+  { path: 'ajouterPatient', component: AjouterPatientComponent },
+  { path: 'ajouterInfirmier', component: AjouterInfirmierComponent },
+  { path: 'patientInfo/:nir', component: PatientInfoComponent },
+  { path: 'infirmierInfo/:id', component: InfirmierInfoComponent},
+  { path: 'infirmierDash', component: InfirmierDashComponent},
+  { path: 'patientDash', component: PatientDashComponent},
+  { path: '', redirectTo: '/', pathMatch: 'full' }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+//export const routingComponents = [InfirmierInfoComponent, Infi]

@@ -1,0 +1,17 @@
+<div id="section" *ngIf="patient" >
+  <mat-card class="card" >
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{patient.prenom}}<strong>{{patient.nom}}</strong></mat-card-title>
+      <mat-card-subtitle>NIR:{{patient.numeroSecuriteSociale}}</mat-card-subtitle>
+    </mat-card-header>
+    <!--<img mat-card-image [src]="'/data/'+(infirmier.photo)" alt="Photo infirmier" width="10">-->
+    <mat-card-content>
+      {{getAdresse(patient.adresse)}}
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Modifier</button>
+      <button mat-button>Supprimer</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

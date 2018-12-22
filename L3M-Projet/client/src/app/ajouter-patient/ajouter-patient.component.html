@@ -1,0 +1,39 @@
+<div id="section" class="formPatient">
+  <form class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Nom" #nom>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Prenom" #prenom>
+    </mat-form-field>
+    <mat-radio-group [(ngModel)]="checked" [ngModelOptions]="{standalone: true}">
+      <mat-radio-button value="Mm">Mm</mat-radio-button>
+      <mat-radio-button value="Mr">Mr</mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="date" [ngModelOptions]="{standalone: true}">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker (dateInput) = "onDate($event)" (dateChange)="onDate($event)" (selectedChanged)="onDate($event)" [(ngModel)]="date" [ngModelOptions]="{standalone: true}" ngDefaultControl ></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="NIR" #nir>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Etage" #etage>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Numero De Rue" #numRue>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Nom De Rue" #nomRue>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Ville" #ville>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Code Postale" #codePostale>
+    </mat-form-field>
+    <button mat-button (click) ="ajouterPatient(prenom.value,nom.value, optionSexe(), formatDate(date), nir.value, etage.value,numRue.value,nomRue.value,ville.value, codePostale.value)" >Valider</button>
+    <button mat-button="">Annuler</button>
+  </form>
+</div>

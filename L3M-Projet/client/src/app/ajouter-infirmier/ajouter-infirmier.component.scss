@@ -1,0 +1,26 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 80%;
+}
+.mat-radio-button {
+  display: inline-block;
+  text-align: left;
+  margin-right: 5%;
+}
+mat-radio-group.mat-radio-group {
+  text-align: left;
+}
+.mat-radio-outer-circle {
+  border-color: #b0b0b0;
+}
+
+.mat-radio-inner-circle {
+  background-color: black;
+}
+.mat-radio-inner-circle{
+  background-color: #757575 !important;
+}

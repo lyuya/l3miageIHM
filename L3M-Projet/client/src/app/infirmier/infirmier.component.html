@@ -1,0 +1,22 @@
+<!--<mat-card class="card">-->
+  <!--<mat-card-header>-->
+    <!--<div mat-card-avatar class="example-header-image"></div>-->
+    <!--<mat-card-title>{{infirmier.prenom}}<strong>{{infirmier.nom}}</strong></mat-card-title>-->
+    <!--<mat-card-subtitle>ID:{{infirmier.id}}</mat-card-subtitle>-->
+  <!--</mat-card-header>-->
+  <!--<img mat-card-image [src]="'/data/'+(infirmier.photo)" alt="Photo infirmier" width="10">-->
+  <!--<mat-card-content>-->
+    <!--{{getAdresse()}}-->
+  <!--</mat-card-content>-->
+  <!--<mat-card-actions>-->
+    <!--<button mat-button>1</button>-->
+    <!--<button mat-button>2</button>-->
+  <!--</mat-card-actions>-->
+<!--</mat-card>-->
+
+
+<div class="nav" (click)="onSelect(infirmier)"  routerLinkActive="active" *ngIf="infirmier" >
+  <p mat-line class="name"><strong>{{infirmier.nom}}&nbsp;{{infirmier.prenom}}</strong></p>
+  <p mat-line class="id">ID: {{infirmier.id}} </p>
+</div>
+

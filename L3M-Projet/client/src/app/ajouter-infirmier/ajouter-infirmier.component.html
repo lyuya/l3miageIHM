@@ -1,0 +1,58 @@
+
+<div id="section" class="formInfirmier">
+<mat-vertical-stepper [linear]="false" #stepper (submit)="ajouterInfirmier()">
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup" class="example-container" >
+      <ng-template matStepLabel>Information</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Nom" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Prénom" required>
+      </mat-form-field>
+      <!--<mat-form-field>-->
+      <!--<input type="file" placeholder="photo">-->
+      <!--</mat-form-field>-->
+      <!--id le systeme va directement le donner un identifiant-->
+      <mat-form-field>
+        <input matInput placeholder="Etage">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Numéro de rue"required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Nom De Rue"required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Ville"required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="CodePostal"required>
+      </mat-form-field>
+      <!--<button mat-button>Valider</button>-->
+      <!--<button mat-button="">Annuler</button>-->
+      <div>
+        <button mat-button matStepperNext>Prochian</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Photo</ng-template>
+        <input type="file" required>
+      <div>
+        <button mat-button matStepperPrevious>return</button>
+        <button mat-button matStepperNext>Prochian</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>fini</ng-template>
+    C'est fini
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
+</div>
