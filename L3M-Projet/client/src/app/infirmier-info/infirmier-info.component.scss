@@ -27,3 +27,56 @@ table {
 td.mat-cell {
   text-align: left !important;
 }
+
+
+
+$size: 200px;
+$corner-size: 30px;
+$post-it-bg-color: #fbee9a;
+$bg-color: #ddddd8;
+$corner-bg-color: darken($post-it-bg-color, 15%);
+
+
+//body {
+//  font-family: sans-serif;
+//  font-size: 20px;
+//  color: #444;
+//  background-color: $bg-color;
+//}
+.note {
+  font-family: "Comic Sans MS";
+}
+.rouge{
+  color: #bd0e14;
+}
+.vert{
+  color: #538047;
+}
+.noir {
+  color: black;
+}
+.affecter {
+  display: inline-block;
+}
+.post-it {
+  text-align: left;
+  font-size: 13px;
+  vertical-align: top;
+  display: inline-block;
+  width : $size*1.1;
+  height: $size;
+  position: relative;
+  background: $post-it-bg-color;
+  padding: 20px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: transparent;
+    border-color: $corner-bg-color $bg-color;
+    border-width: $corner-size $corner-size 0 0;
+    border-style: solid;
+  }
+}

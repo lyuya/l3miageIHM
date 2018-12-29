@@ -14,7 +14,8 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AjouterPatientComponent implements OnInit {
 private sexe: sexeEnum;
-checked = 'Mr';
+sexes: string[] = ['Mme', 'Mr'];
+checked;
 date = '';
   cabinet: CabinetInterface;
   private infirmiers: InfirmierInterface[];
@@ -33,7 +34,8 @@ date = '';
   ngOnInit() {
   }
   optionSexe(): sexeEnum {
-    if (this.checked === 'Mm') {
+    if (this.checked === 'Mme') {
+      console.log('checked ===', this.checked);
       return sexeEnum.F;
     } else {
       return sexeEnum.M;
@@ -54,13 +56,13 @@ date = '';
     return [year, month, day].join('-');
   }
 
-  ajouterPatient(prenom: string, nom: string, sexe: string, date: string,
+  ajouterPatient(prenom: string, nom: string, sexe: sexeEnum, date: string,
   numeroSecuriteSociale: string, etage: string, numRue: string, nomRue: string, ville: string, codePostale: string): PatientInterface {
     const patient: PatientInterface = {
       nom: nom,
       prenom: prenom,
       numeroSecuriteSociale: numeroSecuriteSociale,
-      sexe: sexe === 'Mm' ? sexeEnum.F : sexeEnum.M ,
+      sexe: sexe === sexeEnum.F ? sexeEnum.F : sexeEnum.M ,
       naissance: date,
       adresse: {
       etage : etage,

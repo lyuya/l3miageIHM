@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+.spacer {
+  height: 30px;
+}
 .mat-grid-tile .mat-figure {
   display: block !important;
 }
@@ -20,7 +23,7 @@ mat-list-item:hover {
   background-color: gainsboro;
 }
 #section {
-  width:60%;
+  width:70%;
   float:right;
   padding:10px;
   text-align: center;

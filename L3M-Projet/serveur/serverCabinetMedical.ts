@@ -137,6 +137,11 @@ function init(port, applicationServerIP, applicationServerPort) {
         }
     );
 
+    // app.post( "/delatePatient", (req, res) => {
+    //     const patient = req.body.patient
+    // }
+    // );
+
     // Define HTTP ressource PORT /addPatient, may contains new patient information
     app.post( "/addPatient", (req, res) => {
             console.log("/addPatient, \nreq.body:\n\t", req.body, "\n_______________________");
@@ -214,6 +219,84 @@ function init(port, applicationServerIP, applicationServerPort) {
             saveXML(doc, res);
         }
     );
+
+    // Define HTTP ressource PORT /addInfirmier, may contains new infirmier information
+    // app.post( "/addInfirmier", (req, res) => {
+    //         console.log("/addPatient, \nreq.body:\n\t", req.body, "\n_______________________");
+    //         const infirmier = {
+    //             prénom: req.body.patientForname || "",
+    //             nom: req.body.patientName || "",
+    //             sexe: req.body.patientSex || "F",
+    //             naissance: req.body.naissance || "",
+    //             numéroSécuriteSociale: req.body.patientNumber || "undefined",
+    //             adresse: {
+    //                 ville: req.body.patientCity || "",
+    //                 codePostal: req.body.patientPostalCode || "",
+    //                 rue: req.body.patientStreet || "",
+    //                 numéro: req.body.patientStreetNumber || "",
+    //                 étage: req.body.patientFloor || ""
+    //             }
+    //         };
+    //
+    //         const patients = doc.getElementsByTagName("patients")[0];
+    //         // Is it a new patient or not ?
+    //         let newPatient = getPatient(doc, patient.numéroSécuriteSociale);
+    //         if(!newPatient) {
+    //             newPatient = doc.createElement("patient");
+    //             patients.appendChild( newPatient );
+    //         } else	{// Erase subtree
+    //             while(newPatient.childNodes.length) {
+    //                 newPatient.removeChild( newPatient.childNodes[0] );
+    //             }
+    //         }
+    //
+    //         // Name
+    //         const nom = doc.createElement("nom");
+    //         nom.appendChild( doc.createTextNode(patient.nom) );
+    //         newPatient.appendChild( nom );
+    //         // Forname
+    //         const prénom = doc.createElement("prénom");
+    //         prénom.appendChild( doc.createTextNode(patient.prénom) );
+    //         newPatient.appendChild( prénom );
+    //         // Social security number
+    //         const numéro = doc.createElement("numéro");
+    //         numéro.appendChild( doc.createTextNode(patient.numéroSécuriteSociale) );
+    //         newPatient.appendChild( numéro );
+    //         // Sex
+    //         const sexe = doc.createElement("sexe");
+    //         sexe.appendChild( doc.createTextNode(patient.sexe) );
+    //         newPatient.appendChild( sexe );
+    //         // Birthday
+    //         const naissance = doc.createElement("naissance");
+    //         naissance.appendChild( doc.createTextNode(patient.naissance) );
+    //         newPatient.appendChild( naissance );
+    //         // Visites
+    //         const visite = doc.createElement("visite");
+    //         visite.setAttribute("date", "2014-12-08");
+    //         newPatient.appendChild( visite );
+    //         // Adress
+    //         const adresse = doc.createElement("adresse");
+    //         newPatient.appendChild( adresse );
+    //         const etage = doc.createElement("étage");
+    //         etage.appendChild( doc.createTextNode(patient.adresse.étage) );
+    //         adresse.appendChild( etage );
+    //         const numAdress = doc.createElement("numéro");
+    //         numAdress.appendChild( doc.createTextNode(patient.adresse.numéro) );
+    //         adresse.appendChild( numAdress );
+    //         const rue = doc.createElement("rue");
+    //         rue.appendChild( doc.createTextNode(patient.adresse.rue) );
+    //         adresse.appendChild( rue );
+    //         const ville = doc.createElement("ville");
+    //         ville.appendChild( doc.createTextNode(patient.adresse.ville) );
+    //         adresse.appendChild( ville );
+    //         const codePostal = doc.createElement("codePostal");
+    //         codePostal.appendChild( doc.createTextNode(patient.adresse.codePostal) );
+    //         adresse.appendChild( codePostal );
+    //
+    //         console.log( xmlSerializer.serializeToString(newPatient) );
+    //         saveXML(doc, res);
+    //     }
+    // );
 
     // Define HTTP ressource POST /affectation, associate a patient with a nurse
     app.post( "/affectation", (req, res) => {

@@ -1,4 +1,7 @@
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <div id="section" *ngIf="infirmier" >
+  <div class="detail">
   <mat-card class="card" >
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
@@ -14,15 +17,27 @@
       <button mat-button>Supprimer</button>
     </mat-card-actions>
   </mat-card>
+
+
+  <div class="affecter">
+    <div class="post-it"><strong class="note">Pour affecter un patient dans le list:</strong>
+      <br>
+      <br><strong class="noir">Noir</strong>: ils sont affecté au un autre infirmier;
+      <br>
+      <br><strong class="vert">Vert</strong>: ils sont déja affecté à ce infirmier;
+      <br>
+      <br><strong class="rouge">Rouge</strong>: ils sont pas encore affecté.
+    </div>
+    <div class="spacer"></div>
   <div class="affectation">
       <mat-form-field>
         <mat-select placeholder="Affecter un patient" [(ngModel)]="selectedValue" name="pat">
           <mat-option *ngFor="let pat of patients" [value]="pat.numeroSecuriteSociale">
-            <div [ngStyle]="{'color':pat.intervenant === infirmier.id ? 'green' : pat.intervenant ==='' ? 'red' : 'black'}">{{pat.nom}}&nbsp;{{pat.prenom}}:{{pat.numeroSecuriteSociale}}</div>
+            <div [ngStyle]="{'color':pat.intervenant === infirmier.id ? 'green' : pat.intervenant ===''||pat.intervenant === null ? 'red' : 'black'}">{{pat.nom}}&nbsp;{{pat.prenom}}:{{pat.numeroSecuriteSociale}}</div>
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <p> Selected : {{selectedValue}} </p>
+      <p> Selectionné: {{selectedValue}} </p>
     <div *ngIf="searchPat(selectedValue)">
       <div class="butAffect" [ngStyle]="{'display': searchPat(selectedValue).intervenant === infirmier.id ? 'none': 'inline-block'}" >
         <button mat-button (click) ="affectation(searchPat(selectedValue), infirmier.id)">Affecter</button>
@@ -32,7 +47,8 @@
       </div>
     </div>
   </div>
-
+  </div>
+  </div>
   <div class="patsAffectes">
     <table mat-table [dataSource]="data" class="mat-elevation-z8">
 

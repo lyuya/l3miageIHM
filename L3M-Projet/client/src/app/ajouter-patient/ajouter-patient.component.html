@@ -6,9 +6,8 @@
     <mat-form-field>
       <input matInput placeholder="Prenom" #prenom>
     </mat-form-field>
-    <mat-radio-group [(ngModel)]="checked" [ngModelOptions]="{standalone: true}">
-      <mat-radio-button value="Mm">Mm</mat-radio-button>
-      <mat-radio-button value="Mr">Mr</mat-radio-button>
+    <mat-radio-group [(ngModel)]="checked" [ngModelOptions]="{standalone: true}" #sexe>
+      <mat-radio-button *ngFor="let sex of sexes"[value]="sex" #sexe>{{sex}}</mat-radio-button>
     </mat-radio-group>
     <mat-form-field>
       <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="date" [ngModelOptions]="{standalone: true}">
