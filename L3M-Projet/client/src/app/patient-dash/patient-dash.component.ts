@@ -31,4 +31,7 @@ export class PatientDashComponent implements OnInit {
   getAdresse (ad: Adresse): string {
     return ad.etage + ' ' + ad.numero + ' ' + ad.rue + ' ' + ad.ville + ' ' + ad.codePostal;
   }
+  deletePatient (nir: string) {
+    this.service.deletePatient(nir);
+  }
 }

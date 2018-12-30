@@ -52,7 +52,7 @@ export class InfirmierInfoComponent implements OnInit {
   affectation(pat: PatientInterface, id: string) {
     this.service.affectation(pat, id);
     console.log(this.searchInf(id));
-    location.reload(true);
+    //location.reload(true);
   }
   desaffectation(pat: PatientInterface) {
     this.service.desaffectation(pat);

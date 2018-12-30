@@ -175,6 +175,13 @@ public async affectation(pat: PatientInterface, infID: string): Promise<any> {
     }
     return pats;
   }
+  public async deletePatient(nir: string): Promise<any> {
+    const res = await this._http.post('/deletePatient', {
+      nir: nir
+    }, {observe: 'response'}).toPromise<HttpResponse<any>>();
+    console.log('supprimer', res);
+    return null;
+  }
   // public getPatientsAffectes(id: string): PatientInterface[] {
   //   let node: Element;
   //   let _node: Element;

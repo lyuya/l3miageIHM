@@ -10,5 +10,9 @@
  "/affectation": {
    "target": "http://localhost:8090",
    "secure": false
- }
+ },
+  "/deletePatient": {
+    "target": "http://localhost:8090",
+    "secure": false
+  }
 }

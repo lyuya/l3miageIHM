@@ -114,10 +114,32 @@ function init(port, applicationServerIP, applicationServerPort) {
                 res.end();
         }
     });
-    // app.post( "/delatePatient", (req, res) => {
-    //     const patient = req.body.patient
-    // }
-    // );
+    //HTTP /deletePatient pour supprimer un patient dans la liste
+    app.post("/deletePatient", (req, res) => {
+        console.log("/deletePatient, \nreq.body:\n\t", req.body, "\n_______________________");
+        let patients = doc.getElementsByTagName("patients")[0];
+        let patsNodeList = patients.getElementsByTagName("patient");
+        const nirSupprime = req.body.nir;
+        //console.log(nirSupprime);
+        //let patsNodeList = patients.getElementsByTagName("patient");
+        //const infirmiersElements: Element[] = Array.prototype.slice.call(infirmiersElementNodeList);
+        const patsEles = Array.prototype.slice.call(patsNodeList);
+        //console.log(patsEles);
+        //const patsNodes = Array.from(patsNodeList);
+        //let nirEle = patients.querySelector("patient > numéro");//erreur
+        for (let patEle of patsEles) {
+            let nirEle = patEle.getElementsByTagName("numéro")[0];
+            console.log(nirEle.textContent);
+            if (nirEle.textContent === nirSupprime) {
+                console.log("supprime!");
+                patients.removeChild(patEle);
+            }
+            else {
+                console.log("Error à supprimer!");
+            }
+        }
+        saveXML(doc, res);
+    });
     // Define HTTP ressource PORT /addPatient, may contains new patient information
     app.post("/addPatient", (req, res) => {
         console.log("/addPatient, \nreq.body:\n\t", req.body, "\n_______________________");

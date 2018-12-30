@@ -143,7 +143,7 @@
                 Le jeune Xavier est en cours de désensibilation alergique.
                 Il doit recevoir tous les jours, l'injection de plusieurs allergènes, etc.
                 -->
-                <visite date="2014-12-08" intervenant="">
+                <visite date="2014-12-08" intervenant="001">
                     <acte id="111"/>               
                 </visite>
                 
@@ -162,7 +162,7 @@
                 <ville>Montbonnot-Saint-Martin</ville>
                 <codePostal>38330</codePostal>
             </adresse>
-                <visite date="2014-12-08" intervenant="">
+                <visite date="2014-12-08" intervenant="001">
                     <acte id="401"/>
                 </visite>
                 
