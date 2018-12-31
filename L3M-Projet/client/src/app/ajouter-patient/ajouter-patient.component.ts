@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {CabinetMedicalService} from '../cabinet-medical.service';
 import {CabinetInterface} from '../dataInterfaces/cabinet';
 import {InfirmierInterface} from '../dataInterfaces/infirmier';
@@ -6,6 +6,7 @@ import {PatientInterface} from '../dataInterfaces/patient';
 import {sexeEnum} from '../dataInterfaces/sexe';
 import {Adresse} from '../dataInterfaces/adresse';
 import {HttpClient} from '@angular/common/http';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-ajouter-patient',
@@ -21,7 +22,7 @@ date = '';
   private infirmiers: InfirmierInterface[];
   private patient: PatientInterface;
 
-  constructor(private service: CabinetMedicalService, _http: HttpClient) {
+  constructor(private service: CabinetMedicalService, _http: HttpClient, public dialog: MatDialog) {
 
     // this.initCabinet(service);
     // this.initCabinet(service);
@@ -31,6 +32,16 @@ date = '';
     //   this.patients = c.patientsNonAffectes;
     // });
   }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
   ngOnInit() {
   }
   optionSexe(): sexeEnum {
@@ -75,10 +86,26 @@ date = '';
     }
     console.log(patient);
     this.service.addPatient(patient);
+    this.openDialog();
     return patient;
   }
   private onDate(event): void {
     this.date = '' + event;
     console.log(this.date);
   }
+}
+@Component({
+  selector: 'app-dialog',
+  templateUrl: 'DialogOverviewExampleDialog.html',
+})
+export class DialogComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogComponent>) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+    //location.reload(true);
+  }
+
 }

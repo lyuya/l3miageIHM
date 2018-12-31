@@ -1,5 +1,5 @@
 import {MatButtonModule, MatStepperModule, MatCheckboxModule, MatNativeDateModule,
-  MatTabsModule, MatSort,
+  MatTabsModule, MatDialogModule,
 MatExpansionModule, MatGridListModule, MatCardModule, MatChipsModule, MatDatepickerModule,
 MatSidenavModule, MatIconModule, MatTableModule, MatListModule,   MatButtonToggleModule
 , MatInputModule, MatMenuModule,   MatRadioModule} from '@angular/material';
@@ -10,12 +10,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   imports: [
 MatButtonModule, MatStepperModule, MatRadioModule, MatMenuModule, MatInputModule, MatNativeDateModule,
 MatSelectModule, MatFormFieldModule, MatCheckboxModule, MatExpansionModule, MatDatepickerModule, MatTableModule,
-    MatTabsModule,
+    MatTabsModule, MatDialogModule,
 MatGridListModule, MatCardModule, MatChipsModule, MatSidenavModule, MatIconModule, MatListModule,   MatButtonToggleModule,
   ],
   exports: [
 MatRadioModule, MatStepperModule, MatButtonModule, MatMenuModule, MatInputModule, MatDatepickerModule,
-    MatTabsModule,
+    MatTabsModule, MatDialogModule,
 MatSelectModule, MatFormFieldModule, MatCheckboxModule, MatExpansionModule, MatGridListModule, MatNativeDateModule,
 MatCardModule, MatChipsModule, MatSidenavModule, MatIconModule, MatTableModule, MatListModule,   MatButtonToggleModule,
   ]

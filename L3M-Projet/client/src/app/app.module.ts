@@ -8,13 +8,14 @@ import {HttpClientModule} from '@angular/common/http';
 import { MaterialModule } from './materials';
 import { PatientComponent } from './patient/patient.component';
 import { InfirmierComponent } from './infirmier/infirmier.component';
-import { AjouterPatientComponent } from './ajouter-patient/ajouter-patient.component';
+import {
+  AjouterPatientComponent, DialogComponent } from './ajouter-patient/ajouter-patient.component';
 import { PatientInfoComponent } from './patient-info/patient-info.component';
 import { InfirmierInfoComponent } from './infirmier-info/infirmier-info.component';
 import { InfirmierDashComponent } from './infirmier-dash/infirmier-dash.component';
 import { AjouterInfirmierComponent } from './ajouter-infirmier/ajouter-infirmier.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { PatientDashComponent } from './patient-dash/patient-dash.component';
+import {DialogDeleteComponent, PatientDashComponent} from './patient-dash/patient-dash.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +28,11 @@ import { PatientDashComponent } from './patient-dash/patient-dash.component';
     InfirmierInfoComponent,
     InfirmierDashComponent,
     AjouterInfirmierComponent,
-    PatientDashComponent
+    PatientDashComponent,
+    DialogComponent,
+    DialogDeleteComponent
   ],
+  entryComponents: [DialogComponent, DialogDeleteComponent],
   imports: [
     BrowserModule,
     FormsModule,
