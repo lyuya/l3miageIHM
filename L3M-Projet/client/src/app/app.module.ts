@@ -16,6 +16,8 @@ import { InfirmierDashComponent } from './infirmier-dash/infirmier-dash.componen
 import { AjouterInfirmierComponent } from './ajouter-infirmier/ajouter-infirmier.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DialogDeleteComponent, PatientDashComponent} from './patient-dash/patient-dash.component';
+import { BienvenueComponent } from './bienvenue/bienvenue.component';
+import {DragDropModule} from 'alx-dragdrop';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import {DialogDeleteComponent, PatientDashComponent} from './patient-dash/patien
     AjouterInfirmierComponent,
     PatientDashComponent,
     DialogComponent,
-    DialogDeleteComponent
+    DialogDeleteComponent,
+    BienvenueComponent
   ],
   entryComponents: [DialogComponent, DialogDeleteComponent],
   imports: [
@@ -40,6 +43,7 @@ import {DialogDeleteComponent, PatientDashComponent} from './patient-dash/patien
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    DragDropModule,
     MaterialModule
   ],
   providers: [],

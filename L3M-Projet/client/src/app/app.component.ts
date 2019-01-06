@@ -3,7 +3,6 @@ import {CabinetInterface} from './dataInterfaces/cabinet';
 import {CabinetMedicalService} from './cabinet-medical.service';
 import {InfirmierInterface} from './dataInterfaces/infirmier';
 import {PatientInterface} from './dataInterfaces/patient';
-import {Adresse} from './dataInterfaces/adresse';
 
 @Component({
   selector: 'app-root',
@@ -25,5 +24,16 @@ export class AppComponent implements OnInit {
     });
   }
   ngOnInit() {
+  }
+  searchInf (id): InfirmierInterface {
+    return this.service.searchInf(id, this.cabinet);
+  }
+  searchPat (nir): PatientInterface {
+    return this.service.searchPat(nir, this.cabinet);
+  }
+  affectation(pat: PatientInterface, idINF: string) {
+    this.service.affectation(pat, idINF);
+    console.log(this.searchInf(idINF));
+    //location.reload(true);
   }
 }

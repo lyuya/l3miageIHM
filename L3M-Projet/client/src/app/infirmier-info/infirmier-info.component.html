@@ -1,6 +1,8 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-<div id="section" *ngIf="infirmier" >
+
+  <div id="section" *ngIf="infirmier" >
+    <section alx-dropzone (alx-ondrop)="affectation($event)" >
   <div class="detail">
   <mat-card class="card" >
     <mat-card-header>
@@ -20,12 +22,13 @@
 
 
   <div class="affecter">
-    <div class="post-it"><strong class="note">Pour affecter un patient dans le list:</strong>
-      <br>
+    <div class="post-it"><strong class="note">Pour affecter un patient à cet infirmier :</strong>
+      <br>Vous pouvez drag un patient de la liste de gauche vers la page d'un infirmier à droite.
+      <br>Ou vous pouvez choisir un patient dans la liste ci-dessous.
       <br><strong class="noir">Noir</strong>: ils sont affecté au un autre infirmier;
-      <br>
+
       <br><strong class="vert">Vert</strong>: ils sont déja affecté à ce infirmier;
-      <br>
+
       <br><strong class="rouge">Rouge</strong>: ils sont pas encore affecté.
     </div>
     <div class="spacer"></div>
@@ -72,4 +75,5 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
+    </section>
 </div>

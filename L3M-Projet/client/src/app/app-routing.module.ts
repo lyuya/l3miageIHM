@@ -10,6 +10,7 @@ import {SecretaryComponent} from './secretary/secretary.component';
 import {PatientComponent} from './patient/patient.component';
 import {AppComponent} from './app.component';
 import {PatientDashComponent} from './patient-dash/patient-dash.component';
+import {BienvenueComponent} from './bienvenue/bienvenue.component';
 
 const routes: Routes = [
   { path: 'ajouterPatient', component: AjouterPatientComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'infirmierInfo/:id', component: InfirmierInfoComponent},
   { path: 'infirmierDash', component: InfirmierDashComponent},
   { path: 'patientDash', component: PatientDashComponent},
-  { path: '', redirectTo: '/', pathMatch: 'full' }
+  { path: '', component: BienvenueComponent }
+  // { path: '', redirectTo: '/', pathMatch: 'full', component: BienvenueComponent }
 ];
 
 @NgModule({
