@@ -75,8 +75,8 @@ Click `Infirmiers`, enter routing `/infirmierDash` see the list of all the infir
 
 In the right there are a symbol which you can open a small nav to choose add a new patient/infirmier
 #
-
-
+![2019-01-07 03 28 35](https://user-images.githubusercontent.com/37207110/50747261-47475500-1233-11e9-8b7a-b1dbc3481300.png)
+#
 Click some patient or infirmier you can enter a routing and see the detail profile.
 #
 In the routing `/infirmierInfo/(infirmierID)`, you can:
