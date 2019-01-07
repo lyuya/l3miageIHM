@@ -79,8 +79,8 @@ Click some patient or infirmier you can enter a routing and see the detail profi
 #
 In the routing `/infirmierInfo/(infirmierID)`, you can:
 #
-1.affect a patient with a select list, or drag-drop
-2.desaffect a patient with a select list
+1. affect a patient with a select list, or drag-drop
+2. desaffect a patient with a select list
 #
 ##### In the select list, the patients are divided to 3 differents colors:
 #
@@ -88,9 +88,13 @@ In the routing `/infirmierInfo/(infirmierID)`, you can:
 2. black: affected to the other nurse (only affect button)
 3. green: already affected to this nurse (only desaffect button)
 #
+### The funtions unrealized:
+1. Modification of the data.
+2. Upload the photo of the infirmiers.(In the creation of the new infirmier, we can add the new infirmier in the first step by clicking button `prochain` , but for the second step, i made the interface to upload, but it doesn't work.)
+#
 ### Reference:
-https://codepen.io/miroot/pen/rnvkG
-https://material.angular.io
-https://github.com/AlexDmr/alx-dragdrop#readme
+1. https://codepen.io/miroot/pen/rnvkG
+2. https://material.angular.io
+3. https://github.com/AlexDmr/alx-dragdrop#readme
 
 
