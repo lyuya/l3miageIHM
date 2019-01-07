@@ -152,6 +152,25 @@ export class CabinetMedicalService {
     }
     return null;
   }
+  public async addInfirmier(infirmier: InfirmierInterface): Promise<InfirmierInterface> {
+    const res = await this._http.post('/addInfirmier', {
+      infPrenom: infirmier.prenom,
+      infNom: infirmier.nom,
+      infImg: infirmier.photo,
+      infVille: infirmier.adresse.ville,
+      infCodepostale: infirmier.adresse.codePostal,
+      infRue: infirmier.adresse.rue,
+      infRueNum: infirmier.adresse.numero,
+      infEtage: infirmier.adresse.etage,
+    }, {observe: 'response'}).toPromise<HttpResponse<any>>();
+    console.log('addInf', infirmier);
+    console.log('Add infirmier renvoie', res);
+    if (res.status === 200 && this._cabinet !== undefined) {
+      // OK on peut ajouter en local
+      this._cabinet.infirmiers.push( infirmier );
+    }
+    return null;
+  }
 public async affectation(pat: PatientInterface, infID: string): Promise<any> {
   const res = await this._http.post( '/affectation', {
     infirmier: infID,
@@ -179,34 +198,14 @@ public async affectation(pat: PatientInterface, infID: string): Promise<any> {
     const res = await this._http.post('/deletePatient', {
       nir: nir
     }, {observe: 'response'}).toPromise<HttpResponse<any>>();
-    console.log('supprimer', res);
+    console.log('supprimerPatient', res);
     return null;
   }
-  // public getPatientsAffectes(id: string): PatientInterface[] {
-  //   let node: Element;
-  //   let _node: Element;
-  //   let idInf;
-  //   const patAffectes: PatientInterface[] = [];
-  //   const patientsXML = document.querySelector('patients') as HTMLElement;
-  //   const patientsNodeList = patientsXML.getElementsByTagName('patient');
-  //   const patientsElements: Element[] = Array.prototype.slice.call(patientsNodeList);
-  //   for ( const pat of patientsElements) {
-  //     if (node = pat.querySelector('visite')) {
-  //       idInf = node.getAttribute('intervenant');
-  //     }
-  //     if (id === idInf) {
-  //       const patient: PatientInterface = {
-  //         prenom                : ( _node = pat.querySelector('prénom')) ? node.textContent : '',
-  //         nom                   : ( _node = pat.querySelector('nom')) ? node.textContent : '',
-  //         sexe                  : ( _node = pat.querySelector('sexe')) ? this.toSexe(node.textContent) : null,
-  //         naissance             : ( _node = pat.querySelector('naissance')) ? node.textContent : '',
-  //         numeroSecuriteSociale : ( _node = pat.querySelector('numéro')) ? node.textContent : '',
-  //         adresse               : ( _node = pat.querySelector('adresse')) ? this.getAdresseFrom(node.parentElement) : null,
-  //         intervenant           : ( _node = pat.querySelector('visite'))  ? node.getAttribute('intervenant') : '',
-  //       };
-  //       patAffectes.push(patient);
-  //     }
-  //   }
-  //   return patAffectes;
-  // }
+  public async deleteInfirmier(id: string): Promise<any> {
+    const res = await this._http.post('/deleteInfirmier', {
+      id: id
+    }, {observe: 'response'}).toPromise<HttpResponse<any>>();
+    console.log('supprimerInfirmier', res);
+    return null;
+  }
 }

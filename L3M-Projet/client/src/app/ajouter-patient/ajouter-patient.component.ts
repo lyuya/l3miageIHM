@@ -4,7 +4,6 @@ import {CabinetInterface} from '../dataInterfaces/cabinet';
 import {InfirmierInterface} from '../dataInterfaces/infirmier';
 import {PatientInterface} from '../dataInterfaces/patient';
 import {sexeEnum} from '../dataInterfaces/sexe';
-import {Adresse} from '../dataInterfaces/adresse';
 import {HttpClient} from '@angular/common/http';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
@@ -68,7 +67,8 @@ date = '';
   }
 
   ajouterPatient(prenom: string, nom: string, sexe: sexeEnum, date: string,
-  numeroSecuriteSociale: string, etage: string, numRue: string, nomRue: string, ville: string, codePostale: string): PatientInterface {
+  numeroSecuriteSociale: string, etage: string, numRue: string, nomRue: string, ville: string,
+                 codePostale: string): PatientInterface {
     const patient: PatientInterface = {
       nom: nom,
       prenom: prenom,
@@ -94,6 +94,7 @@ date = '';
     console.log(this.date);
   }
 }
+
 @Component({
   selector: 'app-dialog',
   templateUrl: 'DialogOverviewExampleDialog.html',
@@ -107,5 +108,4 @@ export class DialogComponent {
     this.dialogRef.close();
     //location.reload(true);
   }
-
 }

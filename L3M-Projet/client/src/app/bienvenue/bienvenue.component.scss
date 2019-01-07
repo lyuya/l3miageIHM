@@ -6,5 +6,61 @@
   vertical-align: middle;
 }
 #section {
-  background-image: url("/../assets/Observation medicale.jpg");
 }
+
+#imgstack{
+  width:300px;
+  margin:0 auto;
+  margin-top:2%;
+}
+
+#imgstack a{
+  width:288px;
+  height:200px;
+  position:absolute;
+  display:block;
+  border:6px solid #f0f0f0;
+  border-radius:2px;
+  box-shadow:0 0 10px rgba(0,0,0,.3);
+  transition:margin .5s;
+  -webkit-transition:margin .5s;
+}
+
+#imgstack img{
+  width:288px;
+  max-height:100%;
+}
+
+#imgstack a:first-of-type{
+  margin-top:-5px;
+  margin-left:-20px;
+  z-index:2;
+  transform:rotate(-3deg);
+  -webkit-transform:rotate(-3deg);
+}
+
+#imgstack a:nth-of-type(2){
+  margin-top:-5px;
+  margin-left:-10px;
+  z-index:1;
+}
+
+#imgstack a:last-of-type{
+  transform:rotate(3deg);
+  -webkit-transform:rotate(3deg);
+}
+
+#imgstack:hover a:first-of-type{
+  margin-left:-310px;
+  margin-top:5px;
+}
+
+#imgstack:hover a:nth-of-type(2){margin-top:-5px;}
+
+#imgstack:hover a:last-of-type{
+  margin-left:290px;
+  margin-top:5px;
+}
+
+#imgstack a:first-of-type:hover,#imgstack a:last-of-type:hover{margin-top:-5px;}
+#imgstack a:nth-of-type(2):hover{margin-top:-10px;}

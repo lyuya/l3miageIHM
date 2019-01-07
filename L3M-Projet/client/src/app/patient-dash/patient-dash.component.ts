@@ -8,6 +8,10 @@ import {Adresse} from '../dataInterfaces/adresse';
 import {MatTable} from '@angular/material';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
+export interface DialogData {
+  nir: string;
+  confirme: boolean;
+}
 
 @Component({
   selector: 'app-patient-dash',
@@ -17,6 +21,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 export class PatientDashComponent implements OnInit {
   private cabinet: CabinetInterface;
   private infirmiers: InfirmierInterface[];
+  // @Output() patDel = new EventEmitter<boolean>();
   @ViewChild(MatTable) table: MatTable<any>;
   private patients: PatientInterface[];
   dataSource;
@@ -69,9 +74,10 @@ export class PatientDashComponent implements OnInit {
 
 @Component({
   selector: 'app-dialog-delete',
-  templateUrl: 'DialogDelete.html',
+  templateUrl: 'DialogDeletePat.html',
 })
 export class DialogDeleteComponent {
   constructor(
-    public dialogRef: MatDialogRef<DialogDeleteComponent>) {}
+    public dialogRef: MatDialogRef<DialogDeleteComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }

@@ -14,5 +14,13 @@
   "/deletePatient": {
     "target": "http://localhost:8090",
     "secure": false
+  },
+  "/addInfirmier": {
+    "target": "http://localhost:8090",
+    "secure": false
+  },
+  "/deleteInfirmier": {
+    "target": "http://localhost:8090",
+    "secure": false
   }
 }

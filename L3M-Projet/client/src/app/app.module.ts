@@ -11,8 +11,11 @@ import { InfirmierComponent } from './infirmier/infirmier.component';
 import {
   AjouterPatientComponent, DialogComponent } from './ajouter-patient/ajouter-patient.component';
 import { PatientInfoComponent } from './patient-info/patient-info.component';
-import { InfirmierInfoComponent } from './infirmier-info/infirmier-info.component';
-import { InfirmierDashComponent } from './infirmier-dash/infirmier-dash.component';
+import {
+  DialogAffecterComponent, DialogDesaffecterComponent,
+  InfirmierInfoComponent
+} from './infirmier-info/infirmier-info.component';
+import {DialogDeleteInfComponent, InfirmierDashComponent} from './infirmier-dash/infirmier-dash.component';
 import { AjouterInfirmierComponent } from './ajouter-infirmier/ajouter-infirmier.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DialogDeleteComponent, PatientDashComponent} from './patient-dash/patient-dash.component';
@@ -33,9 +36,12 @@ import {DragDropModule} from 'alx-dragdrop';
     PatientDashComponent,
     DialogComponent,
     DialogDeleteComponent,
+    DialogAffecterComponent,
+    DialogDesaffecterComponent,
+    DialogDeleteInfComponent,
     BienvenueComponent
   ],
-  entryComponents: [DialogComponent, DialogDeleteComponent],
+  entryComponents: [DialogComponent, DialogDeleteComponent, DialogAffecterComponent, DialogDesaffecterComponent, DialogDeleteInfComponent],
   imports: [
     BrowserModule,
     FormsModule,
