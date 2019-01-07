@@ -15,10 +15,10 @@ export class InfirmierComponent implements OnInit {
   ngOnInit() {
   }
   getAdresse (): String {
-    return this.infirmier.adresse.etage + ' ' + this.infirmier.adresse.numero + ' ' + this.infirmier.adresse.rue + ' ' + this.infirmier.adresse.ville + ' ' + this.infirmier.adresse.codePostal;
+    return this.infirmier.adresse.etage + ' ' + this.infirmier.adresse.numero + ' ' +
+      this.infirmier.adresse.rue + ' ' + this.infirmier.adresse.ville + ' ' + this.infirmier.adresse.codePostal;
   }
   onSelect(inf: InfirmierInterface) {
     this.router.navigate(['/infirmierInfo', inf.id]);
-    location.reload(true);
   }
 }

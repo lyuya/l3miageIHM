@@ -10,7 +10,10 @@ import { PatientComponent } from './patient/patient.component';
 import { InfirmierComponent } from './infirmier/infirmier.component';
 import {
   AjouterPatientComponent, DialogComponent } from './ajouter-patient/ajouter-patient.component';
-import { PatientInfoComponent } from './patient-info/patient-info.component';
+import {
+  DialogDeletePatientInfoComponent, PatientInfoComponent,
+  ReloadComponent
+} from './patient-info/patient-info.component';
 import {
   DialogAffecterComponent, DialogDesaffecterComponent,
   InfirmierInfoComponent
@@ -39,9 +42,12 @@ import {DragDropModule} from 'alx-dragdrop';
     DialogAffecterComponent,
     DialogDesaffecterComponent,
     DialogDeleteInfComponent,
+    DialogDeletePatientInfoComponent,
+    ReloadComponent,
     BienvenueComponent
   ],
-  entryComponents: [DialogComponent, DialogDeleteComponent, DialogAffecterComponent, DialogDesaffecterComponent, DialogDeleteInfComponent],
+  entryComponents: [DialogComponent, DialogDeleteComponent, DialogAffecterComponent, DialogDeletePatientInfoComponent,
+    DialogDesaffecterComponent, DialogDeleteInfComponent, ReloadComponent],
   imports: [
     BrowserModule,
     FormsModule,

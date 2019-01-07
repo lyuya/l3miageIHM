@@ -1,6 +1,10 @@
 <section [alx-draggable]="patient">
   <div class="nav" (click)="onSelect(patient)"  routerLinkActive="active" *ngIf="patient" >
-  <p mat-line class="name"><strong>{{patient.nom}}&nbsp;{{patient.prenom}}</strong></p>
-  <p mat-line class="id">NIR: {{patient.numeroSecuriteSociale}} </p>
+    <!--<a [routerLink]="['/patientInfo']" [queryParams]="patient.nir" >-->
+
+      <p mat-line class="name"><strong>{{patient.nom}}&nbsp;{{patient.prenom}}</strong></p>
+      <p mat-line class="id">NIR: {{patient.numeroSecuriteSociale}} </p>
+
+
 </div>
 </section>

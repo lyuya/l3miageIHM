@@ -1,6 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import {PatientInterface} from '../dataInterfaces/patient';
-import { Router} from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {Adresse} from "../dataInterfaces/adresse";
 
 @Component({
@@ -10,8 +10,10 @@ import {Adresse} from "../dataInterfaces/adresse";
 })
 export class PatientComponent implements OnInit {
   @Input() private patient: PatientInterface;
-
-  constructor(private router: Router) { }
+  idPat;
+  params;
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit() {
   }
@@ -19,7 +21,9 @@ export class PatientComponent implements OnInit {
     return ad.etage + ' ' + ad.numero + ' ' + ad.rue + ' ' + ad.ville + ' ' + ad.codePostal;
   }
   onSelect(pat: PatientInterface) {
-    this.router.navigate(['/patientInfo', pat.numeroSecuriteSociale]);
-    location.reload(true);
+     this.router.navigate(['/patientInfo', pat.numeroSecuriteSociale]);
+     // this.router.navigateByUrl('/patientInfo/' + pat.numeroSecuriteSociale);
+
+    // location.reload(true);
   }
 }

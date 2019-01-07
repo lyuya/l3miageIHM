@@ -42,40 +42,7 @@
         </infirmier>
     </infirmiers>
     <patients>
-        <patient>
-            <nom>Aire</nom>
-            <prénom>Axel</prénom>
-            <sexe>M</sexe>
-            <naissance>1993-06-13</naissance>
-            <!-- Homme, né en juin 93 en France, à Marseille (n° 55 en bouches du rhône) 
-            453e naissance (clé calculée: 19)-->
-            <numéro>193061305545319</numéro>
-            <adresse>
-                <étage>4</étage>
-                <numéro>46</numéro>
-                <rue>avenue Félix Viallet</rue>
-                <ville>Grenoble</ville>
-                <codePostal>38031</codePostal>            
-            </adresse>
-                <!-- Ici, j'ai choisi d'identifier l'infirmière par un numéro.
-                Un prénom peut porter à confusion.
-                Un login peut être ok -->
-                
-                <!-- 
-                Axel a eu un accident de moto à cause duquel il a dû être opéré.
-                Il est immobilisé pour un mois et doit donc recevoir des injections
-                sous-cutanées d'anti-coagulant tous les jours pendant une semaine pour éviter les flébites.
-                (Q: Peut-on ajouter la contrainte qu'elles doievent être faites à la même heure chaque jour ?)
-                L'intervenant qui prend en charge Axel est le n°2. Cet intervenant
-                ne travaille pas le mercredi et doit donc céder sa place à l'intervenant
-                n°1 ce jour là.
-                Lors de la dernière visite, l'intervenant doit aussi enlever les 25 points de suture de son opération.
-                -->
-                <visite date="2014-12-08" intervenant="001">
-                    <acte id="109"/>               
-                </visite>
-                
-        </patient>
+        
         <patient>        
             <nom>Orouge</nom>
             <prénom>Elvire</prénom>
@@ -95,7 +62,7 @@
                 (Pansement de brûlure étendue ou de plaie chimique ou thermique étendue,
                     sur une surface supérieure à 5 % de la surface corporelle.....)
                 -->
-                <visite date="2014-12-08" intervenant="">
+                <visite date="2014-12-08" intervenant="002">
                     <acte id="300"/>               
                 </visite>
                 
@@ -167,5 +134,5 @@
                 </visite>
                 
         </patient>
-    </patients>
+        </patients>
     </cabinet>

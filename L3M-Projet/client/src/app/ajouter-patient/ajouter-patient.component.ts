@@ -106,6 +106,6 @@ export class DialogComponent {
 
   onNoClick(): void {
     this.dialogRef.close();
-    //location.reload(true);
+    location.reload(true);
   }
 }

@@ -1,5 +1,10 @@
 
 <div id="section" class="formInfirmier">
+  <p>
+    <strong>
+      Ajouter un nouveau infirmier
+    </strong>
+  </p>
 <mat-vertical-stepper [linear]="false" #stepper (submit)="ajouterInfirmier(prenom, nom, etage, numRue, nomRue, code, ville)">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup" class="example-container" >

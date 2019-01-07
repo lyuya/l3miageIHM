@@ -28,7 +28,9 @@ td.mat-cell {
   text-align: left !important;
 }
 
-
+mat-card.card.mat-card {
+  vertical-align: top;
+}
 
 $size: 200px;
 $corner-size: 30px;

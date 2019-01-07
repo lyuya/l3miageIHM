@@ -8,6 +8,7 @@ import {Adresse} from '../dataInterfaces/adresse';
 import {MatSort, MatTableDataSource } from '@angular/material';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {MatTable} from '@angular/material';
+import {MatSnackBar} from '@angular/material';
 
 export interface DialogData {
   nir: string;
@@ -30,8 +31,25 @@ export class InfirmierInfoComponent implements OnInit {
   private infirmiers: InfirmierInterface[];
   private patients: PatientInterface[];
   private patientsAffectees: PatientInterface[];
-  data;
-  constructor(private route: ActivatedRoute, private service: CabinetMedicalService, public dialog: MatDialog) {
+  dataAffectees;
+  constructor(private route: ActivatedRoute, private service: CabinetMedicalService, public dialog: MatDialog,
+              public snackBar: MatSnackBar) {
+    route.params.subscribe(val => {
+      if (this.i === undefined) {
+        const id = val.id;
+        this.service.getData('/data/cabinetInfirmier.xml').then((c) => {
+          this.cabinet = c;
+          this.infirmiers = c.infirmiers;
+          this.patients = c.patientsNonAffectes;
+          this.infirmier = this.searchInf(id);
+          this.patientsAffectees = this.getPatientsAffectes(id);
+          this.dataAffectees = new MatTableDataSource(this.patientsAffectees);
+
+        });
+      } else {
+        this.infirmier = this.i;
+      }
+    });
 
   }
   displayedColumns: string[] = ['id', 'prenom', 'nom'];
@@ -86,13 +104,17 @@ export class InfirmierInfoComponent implements OnInit {
         this.patients = c.patientsNonAffectes;
         this.infirmier = this.searchInf(id);
         this.patientsAffectees = this.getPatientsAffectes(id);
-        this.data = new MatTableDataSource(this.patientsAffectees);
+        this.dataAffectees = new MatTableDataSource(this.patientsAffectees);
 
       });
     } else {
       this.infirmier = this.i;
     }
-
+  }
+  openSnackBar(message: string, action: string ) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
   searchInf(id): InfirmierInterface {
     return this.service.searchInf(id, this.cabinet);
@@ -102,9 +124,21 @@ export class InfirmierInfoComponent implements OnInit {
   }
   affectation(pat: PatientInterface) {
     this.toAffecter = pat.numeroSecuriteSociale;
-    // this.service.affectation(pat, this.infirmier.id);
-    // location.reload(true);
-    this.openDialog(pat);
+    console.log('pat:', pat);
+    console.log('this.patientsAffectees:', this.patientsAffectees);
+    console.log('this.patientsAffectees.indexOf(pat):', this.patientsAffectees.indexOf(pat) );
+    let trouver = false;
+    this.patientsAffectees.forEach( (e) => {
+      if (e.numeroSecuriteSociale === pat.numeroSecuriteSociale) {
+        trouver = true;
+      }
+    });
+    // if ( this.patientsAffectees.indexOf(pat) === -1 ) {
+    if (!trouver) {
+      this.openDialog(pat);
+    } else {
+      this.openSnackBar('Ce patient est déja affecté au infirmier!!!', '' );
+    }
   }
   desaffectation(pat: PatientInterface) {
     this.toDesaffecter = pat.numeroSecuriteSociale;
@@ -137,4 +171,5 @@ export class DialogDesaffecterComponent {
   constructor(
     public dialogRef: MatDialogRef<DialogDesaffecterComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
 }
