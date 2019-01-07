@@ -86,7 +86,7 @@
                 jour et injection intraveineuse directe isolée d'anthalgiques les 
                 autres jours.
                 -->
-                <visite date="2014-12-08" intervenant="">
+                <visite date="2014-12-08" intervenant="002">
                     <acte id="101"/>
                     <acte id="104"/>               
                 </visite>

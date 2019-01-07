@@ -59,7 +59,6 @@ export class InfirmierInfoComponent implements OnInit {
       width: '250px',
       data: {nir: this.toAffecter, confirme: this.toConfirme}
     });
-
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.toConfirme = result;

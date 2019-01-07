@@ -14,10 +14,6 @@
     <mat-card-content>
       {{getAdresse(infirmier.adresse)}}
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>Modifier</button>
-      <button mat-button>Supprimer</button>
-    </mat-card-actions>
   </mat-card>
 
 
@@ -33,10 +29,13 @@
     </div>
     <div class="spacer"></div>
   <div class="affectation">
+
       <mat-form-field>
-        <mat-select placeholder="Affecter un patient" [(ngModel)]="selectedValue" name="pat">
+        <mat-select placeholder="Affecter un patient" [(ngModel)]="selectedValue"  name="pat">
           <mat-option *ngFor="let pat of patients" [value]="pat.numeroSecuriteSociale">
-            <div [ngStyle]="{'color':pat.intervenant === infirmier.id ? 'green' : pat.intervenant ===''||pat.intervenant === null ? 'red' : 'black'}">{{pat.nom}}&nbsp;{{pat.prenom}}:{{pat.numeroSecuriteSociale}}</div>
+            <div [ngStyle]="{'color':pat.intervenant === infirmier.id ? 'green' : pat.intervenant ===''||pat.intervenant === null ? 'red' : 'black'}"
+                 (ngModel) = "pat"
+            >{{pat.nom}}&nbsp;{{pat.prenom}}:{{pat.numeroSecuriteSociale}}</div>
           </mat-option>
         </mat-select>
       </mat-form-field>
