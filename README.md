@@ -4,17 +4,15 @@
 #
 ### Tech
 
-Dillinger uses a number of open source projects to work properly:
-
 * Angular 7
 * node.js
 * Express.js
 ### Dependancies:
-#
-Angular Material
-alx-dragdrop
+
+* Angular Material
+* alx-dragdrop
+
 #### Get my project in github:
-#
 ```sh
 $git clone https://github.com/lyuya/l3miageIHM.git
 ```
