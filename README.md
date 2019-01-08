@@ -19,6 +19,22 @@ $git clone https://github.com/lyuya/l3miageIHM.git
 ### Installation:
 ##### run the server:
 #
+Because I added the additional requests in the server, so please run the server in my project.
+```json
+  "/deletePatient": {
+    "target": "http://localhost:8090",
+    "secure": false
+  },
+  "/addInfirmier": {
+    "target": "http://localhost:8090",
+    "secure": false
+  },
+  "/deleteInfirmier": {
+    "target": "http://localhost:8090",
+    "secure": false
+  }
+```
+#
 ```sh
 $cd /l3miageIHM/L3M-Projet/serveur
 $npm start
@@ -31,6 +47,7 @@ $npm start
 $cd ../client
 $npm start
 ```
+#
 ###### Then navigate to `http://localhost:4200/` for the page of client.
 #
 ### The components
